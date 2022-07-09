@@ -58,8 +58,13 @@
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
     <build>
             <plugins>
                 <plugin>
@@ -86,7 +91,7 @@
                         <systemProperties>
                             <property>
                                 <name>allure.results.directory</name>
-                                <value>${project.build.directory}/target/allure-results</value>
+                                <value>${project.build.directory}/allure-results</value>
                             </property>
                         </systemProperties>
                     </configuration>
