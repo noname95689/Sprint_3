@@ -1,4 +1,4 @@
-package model;
+package com.example.model;
 
 public class Courier {
 
@@ -43,6 +43,5 @@ public class Courier {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
 }

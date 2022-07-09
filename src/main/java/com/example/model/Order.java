@@ -1,11 +1,13 @@
-package model;
+package com.example.model;
+
+import java.util.List;
 
 public class Order {
 
     private String firstName;
     private String lastName;
     private String address;
-    private int metroStation;
+    private String metroStation;
     private String phone;
     private int rentTime;
     private String deliveryDate;
@@ -13,7 +15,7 @@ public class Order {
     private String[] color;
 
     public Order(String firstName, String lastName, String address,
-                 int metroStation, String phone, int rentTime,
+                 String metroStation, String phone, int rentTime,
                  String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,11 +54,11 @@ public class Order {
         this.address = address;
     }
 
-    public int getMetroStation() {
+    public String getMetroStation() {
         return metroStation;
     }
 
-    public void setMetroStation(int metroStation) {
+    public void setMetroStation(String metroStation) {
         this.metroStation = metroStation;
     }
 

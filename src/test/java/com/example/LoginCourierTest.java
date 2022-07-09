@@ -1,10 +1,12 @@
+package com.example;
+
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import model.Courier;
-import model.CourierId;
+import com.example.model.Courier;
+import com.example.model.CourierId;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +31,7 @@ public class LoginCourierTest {
         Requests.checkIfCourierCreatedAndDelete(login, password);
     }
 
-    @Step("Delete creater model.Courier")
+    @Step("Delete created Courier")
     public void deleteCreatedCourier(String login, String password) {
         int id = sendPostCourierLogin(login, password);
         Requests.sendDeleteCourier(id);
@@ -85,7 +87,6 @@ public class LoginCourierTest {
     @Description("Send Post request with login and password courier/login")
     public void postCourierLoginAnswerBody() {
         Response response = sendPostCourierLoginResponse(login, password);
-        response.then().assertThat().statusCode(200);
         response.then().assertThat().body("id", notNullValue());
         System.out.println("Запрос с корректным логином и паролем на courier/login возвращает id");
     }

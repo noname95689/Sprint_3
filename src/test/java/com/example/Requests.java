@@ -1,14 +1,14 @@
+package com.example;
+
+import com.example.model.Courier;
+import com.example.model.CourierId;
+import com.example.model.Order;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import model.Courier;
-import model.CourierId;
-import model.Order;
-
 import static io.restassured.RestAssured.given;
-public class Requests {
 
-    //ВЫнес повторяющиеся методы, которые используются в разных тестах в отедльный пакет.
+public class Requests {
 
     @Step
     public static void checkIfCourierCreatedAndDelete(String login, String password) {
@@ -88,7 +88,7 @@ public class Requests {
 
     @Step
     public static Response sendPostOrders(String firstName, String lastName, String address,
-                                   int metroStation, String phone, int rentTime,
+                                   String metroStation, String phone, int rentTime,
                                    String deliveryDate, String comment, String[] color) {
         RestAssured.baseURI= "https://qa-scooter.praktikum-services.ru/";
         Order order = new Order(firstName, lastName, address, metroStation,
@@ -102,6 +102,4 @@ public class Requests {
                         .post("/api/v1/orders");
         return response;
     }
-
-
 }
