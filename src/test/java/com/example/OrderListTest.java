@@ -6,11 +6,20 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.hamcrest.MatcherAssert;
+import org.junit.After;
 import org.testng.annotations.Test;
+
+import static com.example.CreateCourierTest.testCount;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class OrderListTest {
+
+    @After
+    public void afterTests() {
+        testCount = testCount++;
+        System.out.println("Тестов пройдено:"+testCount);
+    }
 
     @Test
     @DisplayName("getOrderList returns orderList")

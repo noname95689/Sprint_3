@@ -15,6 +15,7 @@ public class CreateCourierTest {
     private String login ="testuser8451";
     private String password = "1234";
     private String firstName ="jeka";
+    public static int testCount = 0;
 
     @Before
     //Перед тестом проверяем, присутствует ли курьер с таким логином. Если да - удаляем его.
@@ -27,6 +28,8 @@ public class CreateCourierTest {
     @After
     public void afterTests() {
         Requests.checkIfCourierCreatedAndDelete(login, password);
+        testCount = testCount++;
+        System.out.println("Тестов пройдено:"+testCount);
     }
 
     //Запрос с корректными данными возвращает 201 created.

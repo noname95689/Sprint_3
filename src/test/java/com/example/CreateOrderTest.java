@@ -2,11 +2,14 @@ package com.example;
 
 import io.qameta.allure.Description;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.CreateCourierTest.testCount;
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(Parameterized.class)
@@ -28,6 +31,12 @@ public class CreateOrderTest {
         colors.add(new String[]{"BLACK", "GRAY"});
         colors.add(new String[]{""});
         return colors.get(i);
+    }
+
+    @After
+    public void afterTests() {
+        testCount = testCount++;
+        System.out.println("Тестов пройдено:"+testCount);
     }
 
     @Test
