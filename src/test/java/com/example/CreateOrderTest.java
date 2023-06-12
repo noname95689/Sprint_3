@@ -35,7 +35,7 @@ public class CreateOrderTest {
 
     @After
     public void afterTests() {
-        testCount = testCount++;
+        testCount = testCount+1;
         System.out.println("Тестов пройдено:"+testCount);
     }
 

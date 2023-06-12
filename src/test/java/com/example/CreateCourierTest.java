@@ -28,7 +28,7 @@ public class CreateCourierTest {
     @After
     public void afterTests() {
         Requests.checkIfCourierCreatedAndDelete(login, password);
-        testCount = testCount++;
+        testCount = testCount + 1;
         System.out.println("Тестов пройдено:"+testCount);
     }
 
