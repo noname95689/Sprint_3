@@ -1,6 +1,8 @@
 package com.example;
 
 import com.example.model.OrdersList;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.hamcrest.MatcherAssert;
@@ -11,6 +13,8 @@ import static org.hamcrest.Matchers.notNullValue;
 public class OrderListTest {
 
     @Test
+    @DisplayName("getOrderList returns orderList")
+    @Description("Send GET request to /api/v1/orders")
     public void getOrderList() {
         RestAssured.baseURI= "https://qa-scooter.praktikum-services.ru/";
         OrdersList ordersList =
